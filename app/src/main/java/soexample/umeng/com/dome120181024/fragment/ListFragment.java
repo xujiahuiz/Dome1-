@@ -7,6 +7,6 @@ public class ListFragment extends BaseFragment<ListPersenter> {
 
     @Override
     protected Class<ListPersenter> getlayout() {
-        return null;
+        return ListPersenter.class;
     }
 }

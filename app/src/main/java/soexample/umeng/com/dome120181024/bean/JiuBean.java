@@ -5,7 +5,6 @@ import java.util.List;
 
 public class JiuBean {
 
-
     /**
      * msg :
      * code : 0

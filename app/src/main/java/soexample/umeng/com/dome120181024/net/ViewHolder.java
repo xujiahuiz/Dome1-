@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 public class ViewHolder extends RecyclerView.ViewHolder {
     private Context mContext;
     private SparseArray<View> views = new SparseArray<>();
-    View rootView;
+    private View rootView;
 
     public ViewHolder(@NonNull View itemView, Context mcontext) {
         super(itemView);
@@ -23,6 +23,9 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    public View getRootView() {
+        return rootView;
+    }
 
     public <T extends View> T getView(int viewId) {
         T view = (T) views.get(viewId);
@@ -55,8 +58,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         if (ids == null) {
             return;
         }
-        for (int id :ids) {
-           getView(id).setOnClickListener(listener);
+        for (int id : ids) {
+            getView(id).setOnClickListener(listener);
         }
     }
 

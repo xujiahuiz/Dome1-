@@ -141,7 +141,7 @@ public class MePersenter extends AppIDetegate {
             public void Filed(String msg) {
 
             }
-        }).doGet(Http.SHOP_URL);
+        }).doGet("http://www.zhaoapi.cn/product/getProductCatagory?cid=71");
     }
 
     //初始化控件

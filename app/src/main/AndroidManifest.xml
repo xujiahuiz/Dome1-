@@ -33,7 +33,7 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="840fcf3e0e845d3263bc861793b8ad22">
+            android:value="840fcf3e0e845d3263bc861793b8ad22re3   ">
         </meta-data>
 
         <activity android:name=".GDActivity"></activity>
