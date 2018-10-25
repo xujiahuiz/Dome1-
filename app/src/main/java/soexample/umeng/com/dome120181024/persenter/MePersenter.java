@@ -19,7 +19,7 @@ import soexample.umeng.com.dome120181024.net.Http;
 import soexample.umeng.com.dome120181024.net.HttpHelper;
 import soexample.umeng.com.dome120181024.net.HttpRequestListener;
 
-public class MePersenter extends AppIDetegate{
+public class MePersenter extends AppIDetegate {
     private RecyclerView shoplist;
     private ImageView shopck;
     private TextView allprice;
@@ -78,12 +78,14 @@ public class MePersenter extends AppIDetegate{
 
         }, R.id.shop_ck);
     }
-        public void getPrice() {
-            allprice.setText("价格:" + price);
-            connet.setText("数量:" + "(" + num + ")");
-            price = 0;
-            num = 0;
-        }
+
+    public void getPrice() {
+        allprice.setText("价格:" + price);
+        connet.setText("数量:" + "(" + num + ")");
+        price = 0;
+        num = 0;
+    }
+
     //获取购物车列表
     private void getShopList() {
         new HttpHelper(new HttpRequestListener() {
@@ -101,13 +103,14 @@ public class MePersenter extends AppIDetegate{
                 shopCarAdapter = new ShopCarAdapter(mcontext, recyBean.getData());
                 shopCarAdapter.setClick(new ShoppingAdapter.OkClick() {
                     @Override
-                    public void click(boolean flag) {
+                    public void click() {
 
                         for (int i = 0; i < recyBean.getData().size(); i++) {
                             for (int j = 0; j < recyBean.getData().get(i).getList().size(); j++) {
-                                if (recyBean.getData().get(i).getList().get(j).isIschecked()){
-                                price += recyBean.getData().get(i).getList().get(j).getPrice();
-                                num++;
+                                if (recyBean.getData().get(i).getList().get(j).isIschecked()) {
+                                    RecyBean.DataBean.ListBean listBean = recyBean.getData().get(i).getList().get(j);
+                                    price += listBean.getPrice() * listBean.getSelectnum();
+                                    num += listBean.getSelectnum();
                                 }
                             }
                         }

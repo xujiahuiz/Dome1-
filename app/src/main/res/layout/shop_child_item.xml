@@ -6,7 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+
         android:orientation="horizontal">
 
         <ImageView
@@ -14,6 +15,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
+android:layout_marginBottom="30dp"
             android:src="@drawable/cricle_no" />
 
         <ImageView
@@ -23,7 +25,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -31,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
+                android:maxEms="40"
+                android:maxLines="1"
                 android:text="商家1" />
 
             <TextView
@@ -39,8 +43,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
                 android:text="价格" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_jia"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="#d43"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textSize="10dp" />
+
+                <EditText
+
+                    android:id="@+id/txt_num"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="10dp" />
+
+
+                <TextView
+                    android:id="@+id/txt_jian"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="#d43"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textSize="10dp" />
+
+
+            </LinearLayout>
         </LinearLayout>
 
 

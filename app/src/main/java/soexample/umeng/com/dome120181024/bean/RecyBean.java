@@ -102,6 +102,15 @@ public class RecyBean{
             private String subhead;
             private String title;
             private boolean ischecked = false;
+            private int selectnum = 1;
+
+            public int getSelectnum() {
+                return selectnum;
+            }
+
+            public void setSelectnum(int selectnum) {
+                this.selectnum = selectnum;
+            }
 
             public ListBean(boolean ischecked) {
                 this.ischecked = ischecked;

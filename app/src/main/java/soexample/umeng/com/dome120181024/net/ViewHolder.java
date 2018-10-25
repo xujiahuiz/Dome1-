@@ -51,6 +51,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public void setClick(View.OnClickListener listener, int... ids) {
+        if (ids == null) {
+            return;
+        }
+        for (int id :ids) {
+           getView(id).setOnClickListener(listener);
+        }
+    }
 
     //如果想添加其他的方法请在下方添加参照setText如获取网络图片等....
 }
