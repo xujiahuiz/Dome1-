@@ -1,13 +1,10 @@
 package soexample.umeng.com.dome120181024.net;
+
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.google.common.io.CharStreams;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 import okhttp3.Call;
 import okhttp3.Callback;

@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import soexample.umeng.com.dome120181024.R;
 import soexample.umeng.com.dome120181024.MainActivity;
+import soexample.umeng.com.dome120181024.fragment.GDFragment;
+import soexample.umeng.com.dome120181024.fragment.ListFragment;
 import soexample.umeng.com.dome120181024.fragment.MeFragment;
 import soexample.umeng.com.dome120181024.fragment.ShouYeFragment;
 import soexample.umeng.com.dome120181024.mvp.view.AppIDetegate;
@@ -26,7 +28,7 @@ public class MianPersenter extends AppIDetegate {
     private Context mcontext;
     private ViewPager viewpager;
     private TabLayout tablayout;
-    private String[] data = {"首页", "我的"};
+    private String[] data = {"首页", "我的","高德","列表"};
 
     @Override
     protected int getLayout() {
@@ -38,10 +40,10 @@ public class MianPersenter extends AppIDetegate {
         super.initData();
         initView();
         final List<Fragment> fragments = new ArrayList<>();
-        for (int i = 0; i < data.length - 1; i++) {
-            fragments.add(new ShouYeFragment());
-            fragments.add(new MeFragment());
-        }
+        fragments.add(new ShouYeFragment());
+        fragments.add(new MeFragment());
+        fragments.add(new GDFragment());
+        fragments.add(new ListFragment());
         viewpager.setAdapter(new FragmentPagerAdapter(((MainActivity) mcontext).getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int i) {

@@ -1,10 +1,8 @@
 package soexample.umeng.com.dome120181024.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;

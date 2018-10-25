@@ -45,9 +45,16 @@ public class MePersenter extends AppIDetegate {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
+                    /**
+                     **
+                     * 点击全选
+                     * */
                     case R.id.shop_ck:
                         if (flag) {
+                            //为true的时候设置一张选中的图片
                             shopck.setImageResource(R.drawable.cricle_yes);
+//                            for循环进行获取之后累加数量以及价钱
+
                             for (int i = 0; i < recyBean.getData().size(); i++) {
                                 for (int j = 0; j < recyBean.getData().get(i).getList().size(); j++) {
                                     recyBean.getData().get(i).getList().get(j).setIschecked(true);
@@ -55,8 +62,10 @@ public class MePersenter extends AppIDetegate {
                                     num++;
                                 }
                             }
+                            //更新商家adapter
                             shopCarAdapter.notifyDataSetChanged();
                         } else {
+                            //为false的时候设置一张选中的图片
                             shopck.setImageResource(R.drawable.cricle_no);
                             for (int i = 0; i < recyBean.getData().size(); i++) {
                                 for (int j = 0; j < recyBean.getData().get(i).getList().size(); j++) {
@@ -65,8 +74,10 @@ public class MePersenter extends AppIDetegate {
 
                                 }
                             }
+//                            else时要在for循环外给价钱以及数量赋值为0
                             price = 0;
                             num = 0;
+                            //更新商家adapter
                             shopCarAdapter.notifyDataSetChanged();
                         }
                         flag = !flag;
@@ -79,6 +90,9 @@ public class MePersenter extends AppIDetegate {
         }, R.id.shop_ck);
     }
 
+    /**
+     * 设置底部的价格及数量
+     */
     public void getPrice() {
         allprice.setText("价格:" + price);
         connet.setText("数量:" + "(" + num + ")");
@@ -101,6 +115,7 @@ public class MePersenter extends AppIDetegate {
                 StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
                 shoplist.setLayoutManager(staggeredGridLayoutManager);
                 shopCarAdapter = new ShopCarAdapter(mcontext, recyBean.getData());
+                //设置单个选中还有加减号的数量价钱（通过回调）
                 shopCarAdapter.setClick(new ShoppingAdapter.OkClick() {
                     @Override
                     public void click() {
@@ -109,6 +124,7 @@ public class MePersenter extends AppIDetegate {
                             for (int j = 0; j < recyBean.getData().get(i).getList().size(); j++) {
                                 if (recyBean.getData().get(i).getList().get(j).isIschecked()) {
                                     RecyBean.DataBean.ListBean listBean = recyBean.getData().get(i).getList().get(j);
+
                                     price += listBean.getPrice() * listBean.getSelectnum();
                                     num += listBean.getSelectnum();
                                 }

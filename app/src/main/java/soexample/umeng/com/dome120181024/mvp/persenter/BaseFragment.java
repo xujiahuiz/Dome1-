@@ -36,7 +36,7 @@ public abstract class BaseFragment<T extends AppIDetegate> extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        appIDetegate.initContext(getActivity());
         appIDetegate.create(getLayoutInflater(), null, savedInstanceState);
         return appIDetegate.rooyView();
     }
@@ -44,7 +44,7 @@ public abstract class BaseFragment<T extends AppIDetegate> extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        appIDetegate.initContext(getActivity());
+
         appIDetegate.initData();
     }
 }

@@ -1,6 +1,6 @@
 package soexample.umeng.com.dome120181024.bean;
 
-import java.util.List;
+        import java.util.List;
 
 public class RecyBean{
 
